@@ -1,6 +1,6 @@
 # Logistic_Map_Website
 Website to explain new hashing algorithm proposal.  
-Currently in development.
+Status: Currently in development.
 
 ## Access Here
 
