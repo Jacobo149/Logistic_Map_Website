@@ -16,14 +16,8 @@
         <h2>About the Proposal</h2>
         <p>
             This is based on the chaotic function called a Bifurcation Tree. The idea is, that no matter what the inputs are, you are unable to predict the output.
-
-
             So, if you have an input to the function, say a list of keywords, you input it into the function and receive an output, which maps to a point on the bifurcation tree graph which will act as the private and public key.
-            
-            
             Theoretically, without knowledge of both of these points, you can't figure out the original input. Knowledge of one will reduce the possible points to a cross-section that if we make large enough, will make it infeasible to brute force.
-            
-            
             Especially in large applications,  needing enough points on the tree to avoid collision is trivial, adding more degrees of precision to the input will allow more points of output on the tree. Plus, running this hashing algorithm will allow for O(1) running time, severely outpacing even the fastest elliptic curve algorithm.
                     </p>
 
@@ -32,24 +26,44 @@
             The function is defined as:
             xn+1 = rxn(1 - xn)
         
-        The bifurcation parameter r is shown on the horizontal axis of the plot and the vertical axis shows the set of values of the logistic function visited asymptotically from almost all initial conditions.
-        The bifurcation diagram shows the forking of the periods of stable orbits from 1 to 2 to 4 to 8 etc. Each of these bifurcation points is a period-doubling bifurcation. The ratio of the lengths of successive intervals between values of r for which bifurcation occurs converges to the first Feigenbaum constant.
-        Source: <a href="https://en.wikipedia.org/wiki/Bifurcation_diagram" target="_blank">bifurcation diagram</a></p>
+            The bifurcation parameter r is shown on the horizontal axis of the plot and the vertical axis shows the set of values of the logistic function visited asymptotically from almost all initial conditions.
+            The bifurcation diagram shows the forking of the periods of stable orbits from 1 to 2 to 4 to 8 etc. Each of these bifurcation points is a period-doubling bifurcation. The ratio of the lengths of successive intervals between values of r for which bifurcation occurs converges to the first Feigenbaum constant.
+            Source: <a href="https://en.wikipedia.org/wiki/Bifurcation_diagram" target="_blank">bifurcation diagram</a></p>
 
         <h2>Competition</h2>
         <p>
             Competition:
-Currently, the most widely adopted algorithm is <a href="https://www.n-able.com/blog/sha-256-encryption" target="_blank">SHA-256</a>. This algorithm is standard practice with small faults,
- multiplying two large prime numbers to get a massive non-prime product. The biggest pitfall to SHA-256 is the vulnerability opened 
- up by quantum computing. This <a href="https://youtu.be/lvTqbM5Dq4Q?si=Eu-iRiXIPm2OR_AF" target="_blank">resource</a> explains satisfactorily.
+            Currently, the most widely adopted algorithm is <a href="https://www.n-able.com/blog/sha-256-encryption" target="_blank">SHA-256</a>. This algorithm is standard practice with small faults,
+            multiplying two large prime numbers to get a massive non-prime product. The biggest pitfall to SHA-256 is the vulnerability opened 
+            up by quantum computing. This <a href="https://youtu.be/lvTqbM5Dq4Q?si=Eu-iRiXIPm2OR_AF" target="_blank">resource</a> explains satisfactorily.
 
         <p>
 
         <h2>Rise of Bifurcation Hahsing</h2>
         <p>
             Rise of Bifurcation Hashing:
-Since our algorithm does not use prime number factorization, it will not fall victim to Shor’s algorithm implemented on a quantum computer. 
-This does not mean there are no other pitfalls to our algorithm. Possible pitfalls still have yet to be inquired.
+                Since our algorithm does not use prime number factorization, it will not fall victim to Shor’s algorithm implemented on a quantum computer. 
+            This does not mean there are no other pitfalls to our algorithm. Possible pitfalls still have yet to be inquired.
+
+            2020 paper, <a href="https://www.mdpi.com/2079-9292/9/1/104" target="_blank">Pseudorandom Number Generator (PRNG) Design Using Hyper-Chaotic Modified Robust Logistic Map (HC-MRLM)</a> used the chaotic logistic map for random number generation.
+            Isolated the chaotic r values to create a fully chaotic map. Can be altered to use for hashing as the following characteristics below define a 
+            good RNG and hashing algorithm respectively:
+            <br> <br>
+            RNG:               <a href="https://courses.physics.illinois.edu/phys466/sp2013/lnotes/random_numbers.html#:~:text=What%20are%20some%20of%20the,of%20range%2C%20efficiency%20of%20algorithm" target="_blank">Generation of Random Numbers </a>
+            <ul>
+                <li>Uncorrelated</li>
+                <li>Deterministic</li>
+                <li>Uniform coverage of the range</li>
+                <li>Fast to Compute</li>
+              </ul>
+              <br> <br>
+              Hashing:
+              <ul>
+                <li>Unique output for all unique inputs</li>
+                <li>Small deviations in input result in large changes in output</li>
+                <li>Given partial output, impossibly tedious to compute input</li>
+                <li>Fast to compute</li>
+              </ul>
 
         <p>
     
@@ -58,7 +72,7 @@ This does not mean there are no other pitfalls to our algorithm. Possible pitfal
 
 
     <footer>
-        &copy; 2023 Logistic Map Hashing Proposal
+        &copy; 2023 Logistic Map Hashing Proposal: Jacob Piskadlo, Junior Weil
     </footer>
 </body>
 </html>
